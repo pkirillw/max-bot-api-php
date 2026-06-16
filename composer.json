@@ -1,0 +1,46 @@
+{
+    "name": "pkirillw/max-bot-api-php",
+    "description": "MAX Bot API client for PHP",
+    "type": "library",
+    "license": "Apache-2.0",
+    "keywords": ["max", "bot", "api", "messenger", "client"],
+    "require": {
+        "php": "^8.2",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "psr/http-message": "^1.1 || ^2.0",
+        "psr/http-server-handler": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "guzzlehttp/psr7": "^2.0",
+        "nyholm/psr7": "^1.8"
+    },
+    "suggest": {
+        "guzzlehttp/guzzle": "Recommended PSR-18 implementation",
+        "symfony/http-client": "Alternative PSR-18 implementation",
+        "nyholm/psr7": "Lightweight PSR-17 factory",
+        "guzzlehttp/psr7": "PSR-17 factory from Guzzle"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pkirillw\\MaxBotApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pkirillw\\MaxBotApi\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    }
+}

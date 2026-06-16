@@ -1,0 +1,23 @@
+# Файлы, которые остаются в репозитории для разработки,
+# но ВЫРЕЗАЮТСЯ из zip-архива, который Packagist отдаёт пользователю.
+# Это уменьшает размер установленного пакета и убирает dev-мусор из vendor/.
+
+# Тесты и дев-конфиги
+/tests                  export-ignore
+/phpunit.xml.dist       export-ignore
+/.phpunit.cache         export-ignore
+
+# CI и метаданные репозитория
+/.gitattributes         export-ignore
+/.gitignore             export-ignore
+/.github                export-ignore
+/.gitlab-ci.yml         export-ignore
+
+# Примеры — пользователь читает их на GitLab, в пакет не тащим
+/examples               export-ignore
+
+# Документация для контрибьюторов
+/DEVELOPMENT.md         export-ignore
+
+# IDE
+/.idea                  export-ignore
