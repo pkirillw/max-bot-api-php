@@ -6,7 +6,7 @@ namespace Pkirillw\MaxBotApi\Scheme\Button;
 
 use Pkirillw\MaxBotApi\Scheme\Enum\ButtonType;
 
-readonly class OpenAppButton implements ButtonInterface
+final readonly class OpenAppButton implements ButtonInterface
 {
     public function __construct(
         public string $text,

@@ -23,5 +23,8 @@ lint:
 phpstan:
 	$(COMPOSE) vendor/bin/phpstan analyse --no-progress --memory-limit=1G
 
+psalm:
+	$(COMPOSE) vendor/bin/psalm --no-progress
+
 shell:
 	$(COMPOSE) bash

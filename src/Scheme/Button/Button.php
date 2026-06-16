@@ -6,7 +6,7 @@ namespace Pkirillw\MaxBotApi\Scheme\Button;
 
 use Pkirillw\MaxBotApi\Scheme\Enum\ButtonType;
 
-readonly class Button implements ButtonInterface
+final readonly class Button implements ButtonInterface
 {
     public function __construct(
         public ButtonType $type,

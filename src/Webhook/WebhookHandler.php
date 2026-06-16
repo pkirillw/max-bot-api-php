@@ -89,7 +89,8 @@ final class WebhookHandler implements RequestHandlerInterface
     private function jsonResponse(int $status, array $payload): ResponseInterface
     {
         $response = $this->responseFactory->createResponse($status);
-        $response->getBody()->write(json_encode($payload, JSON_UNESCAPED_UNICODE));
+        $json = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
+        $response->getBody()->write($json);
         return $response->withHeader('Content-Type', 'application/json');
     }
 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Pkirillw\MaxBotApi\Exception;
 
-class SerializationException extends MaxBotApiException
+final class SerializationException extends MaxBotApiException
 {
     public function __construct(string $operation, string $type, \Throwable $previous)
     {

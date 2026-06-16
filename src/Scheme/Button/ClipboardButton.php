@@ -6,7 +6,7 @@ namespace Pkirillw\MaxBotApi\Scheme\Button;
 
 use Pkirillw\MaxBotApi\Scheme\Enum\ButtonType;
 
-readonly class ClipboardButton implements ButtonInterface
+final readonly class ClipboardButton implements ButtonInterface
 {
     public function __construct(
         public string $text,

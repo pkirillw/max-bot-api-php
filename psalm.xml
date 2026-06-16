@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<psalm
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    errorLevel="5"
+    resolveFromConfigFile="true"
+    findUnusedBaselineEntry="true"
+    findUnusedCode="false"
+    phpVersion="8.2"
+>
+    <projectFiles>
+        <directory name="src" />
+        <ignoreFiles>
+            <directory name="vendor" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <!-- #[Override] attribute is PHP 8.3+; this library targets 8.2+. -->
+        <MissingOverrideAttribute>
+            <errorLevel type="suppress">
+                <directory name="src" />
+            </errorLevel>
+        </MissingOverrideAttribute>
+
+        <!-- Exception hierarchy is intentionally extensible so users can catch
+             narrower subtypes in their own code. -->
+        <ClassMustBeFinal>
+            <errorLevel type="suppress">
+                <directory name="src/Exception" />
+            </errorLevel>
+        </ClassMustBeFinal>
+
+        <!-- jsonSerialize() uses array_filter to drop empty fields at runtime;
+             the typed properties make these checks look redundant to static analysis. -->
+        <RedundantConditionGivenDocblockType>
+            <errorLevel type="suppress">
+                <directory name="src/Scheme" />
+            </errorLevel>
+        </RedundantConditionGivenDocblockType>
+    </issueHandlers>
+</psalm>

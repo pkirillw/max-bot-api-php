@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Pkirillw\MaxBotApi\Exception;
 
-class TimeoutException extends MaxBotApiException
+final class TimeoutException extends MaxBotApiException
 {
     public function __construct(public readonly string $operation, string $reason = '')
     {

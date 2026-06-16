@@ -142,7 +142,7 @@ final class Client
 
         if (is_string($body)) {
             $request = $request->withBody($this->streamFactory->createStream($body));
-        } elseif (is_resource($body)) {
+        } else {
             $request = $request->withBody($this->streamFactory->createStreamFromResource($body));
         }
 

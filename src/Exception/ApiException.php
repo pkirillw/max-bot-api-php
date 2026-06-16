@@ -6,7 +6,7 @@ namespace Pkirillw\MaxBotApi\Exception;
 
 /**
  * Thrown when MAX API responds with a non-2xx status. Carries the HTTP status code
- * and the API-level error code so callers can match on known failures.
+ *final  and the API-level error code so callers can match on known failures.
  */
 class ApiException extends MaxBotApiException
 {

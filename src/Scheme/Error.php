@@ -31,7 +31,7 @@ final readonly class Error implements \JsonSerializable
             errorText: (string)($data['error'] ?? ''),
             code: (string)($data['code'] ?? ''),
             message: (string)($data['message'] ?? ''),
-            numberExist: array_map('strval', (array)($data['existing_phone_numbers'] ?? [])),
+            numberExist: array_values(array_map('strval', (array)($data['existing_phone_numbers'] ?? []))),
             results: $results,
         );
     }

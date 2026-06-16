@@ -136,11 +136,12 @@ final class Message
      */
     public function reply(string $text, SchemeMessage $to): self
     {
-        if ($to->recipient?->userId !== null && $to->recipient->userId !== 0) {
-            $this->userId = $to->recipient->userId;
+        $recipient = $to->recipient;
+        if ($recipient !== null && $recipient->userId !== 0) {
+            $this->userId = $recipient->userId;
         }
-        if ($to->recipient?->chatId !== null && $to->recipient->chatId !== 0) {
-            $this->chatId = $to->recipient->chatId;
+        if ($recipient !== null && $recipient->chatId !== 0) {
+            $this->chatId = $recipient->chatId;
         }
         $mid = $to->body?->mid ?? '';
         return $this->setReply($text, $mid);

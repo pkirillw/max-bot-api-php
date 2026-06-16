@@ -17,7 +17,8 @@
         "guzzlehttp/psr7": "^2.0",
         "nyholm/psr7": "^1.8",
         "phpstan/phpstan": "^2.2",
-        "phpunit/phpunit": "^10.0"
+        "phpunit/phpunit": "^10.0",
+        "vimeo/psalm": "^6.16"
     },
     "suggest": {
         "guzzlehttp/guzzle": "Recommended PSR-18 implementation",

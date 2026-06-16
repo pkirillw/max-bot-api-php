@@ -184,6 +184,6 @@ final readonly class Messages
         }
 
         $data = $this->client->requestJson('GET', 'notify/exists', $query, null, $message->isReset());
-        return array_map('strval', (array)($data['existing_phone_numbers'] ?? []));
+        return array_values(array_map('strval', (array)($data['existing_phone_numbers'] ?? [])));
     }
 }

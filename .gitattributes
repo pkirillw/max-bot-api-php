@@ -11,6 +11,8 @@
 /Dockerfile             export-ignore
 /docker-compose.yml     export-ignore
 /Makefile               export-ignore
+/phpstan.neon           export-ignore
+/psalm.xml              export-ignore
 
 # CI и метаданные репозитория
 /.gitattributes         export-ignore

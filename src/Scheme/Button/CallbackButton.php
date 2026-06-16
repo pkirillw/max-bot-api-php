@@ -7,7 +7,7 @@ namespace Pkirillw\MaxBotApi\Scheme\Button;
 use Pkirillw\MaxBotApi\Scheme\Enum\ButtonType;
 use Pkirillw\MaxBotApi\Scheme\Enum\Intent;
 
-readonly class CallbackButton implements ButtonInterface
+final readonly class CallbackButton implements ButtonInterface
 {
     public function __construct(
         public string $text,
