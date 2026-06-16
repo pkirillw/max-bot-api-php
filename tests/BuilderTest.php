@@ -38,7 +38,7 @@ final class BuilderTest extends TestCase
             ->addLink('docs', 'https://dev.max.ru');
 
         $built = $keyboard->build();
-        $json  = json_encode($built, JSON_UNESCAPED_UNICODE);
+        $json  = json_encode($built, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
         self::assertStringContainsString('"text":"yes"', $json);
         self::assertStringContainsString('"intent":"positive"', $json);

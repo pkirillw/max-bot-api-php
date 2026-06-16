@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Pkirillw\MaxBotApi\Scheme;
 
 use Pkirillw\MaxBotApi\Scheme\Button\ButtonInterface;
+use Pkirillw\MaxBotApi\Scheme\Button\ButtonParser;
 
 final readonly class Keyboard implements \JsonSerializable
 {
