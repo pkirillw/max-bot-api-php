@@ -1,0 +1,14 @@
+parameters:
+    level: 6
+    paths:
+        - src
+    treatPhpDocTypesAsCertain: false
+    ignoreErrors:
+        # jsonSerialize()/array params — adding list<TKey, TValue> everywhere is noise
+        # for what is essentially a stable DTO surface.
+        - '#no value type specified in iterable type array#'
+        # Update DTOs expose nullable Message/Callback props; nullsafe access is idiomatic.
+        - identifier: nullsafe.neverNull
+        # array_filter callbacks in jsonSerialize(): the runtime values can be null/0/''
+        # even when the typed property is non-nullable (defaults are filled in from JSON).
+        - identifier: notIdentical.alwaysTrue

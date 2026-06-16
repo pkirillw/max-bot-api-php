@@ -21,7 +21,7 @@ lint:
 	$(COMPOSE) bash -c 'find src tests -name "*.php" -exec php -l {} \; 2>&1 | grep -v "No syntax errors" || true'
 
 phpstan:
-	$(COMPOSE) vendor/bin/phpstan analyse src level 6 --no-progress
+	$(COMPOSE) vendor/bin/phpstan analyse --no-progress --memory-limit=1G
 
 shell:
 	$(COMPOSE) bash

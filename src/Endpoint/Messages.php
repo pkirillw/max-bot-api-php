@@ -79,7 +79,7 @@ final readonly class Messages
                     throw $e;
                 }
                 if ($attempt < self::MAX_RETRIES - 1) {
-                    usleep(1 << $attempt);
+                    usleep((1 << $attempt) * 1_000_000);
                 }
             }
         }
@@ -99,7 +99,7 @@ final readonly class Messages
                     throw $e;
                 }
                 if ($attempt < self::MAX_RETRIES - 1) {
-                    usleep(1 << $attempt);
+                    usleep((1 << $attempt) * 1_000_000);
                 }
             }
         }

@@ -36,14 +36,17 @@ final class Api
     public readonly Subscriptions $subscriptions;
     public readonly Uploads $uploads;
 
-    public function __construct(public readonly Client $client)
-    {
+    public function __construct(
+        public readonly Client $client,
+        PsrHttpClientInterface $http,
+        RequestFactoryInterface $requestFactory,
+    ) {
         $this->bots = new Bots($client);
         $this->chats = new Chats($client);
         $this->debugs = new Debugs($client, $client->getOptions()->debugChatId);
         $this->messages = new Messages($client);
         $this->subscriptions = new Subscriptions($client);
-        $this->uploads = new Uploads($client);
+        $this->uploads = new Uploads($client, $http, $requestFactory);
     }
 
     /**
@@ -66,13 +69,13 @@ final class Api
             streamFactory: $streamFactory,
             options: $options,
         );
-        return new self($client);
+        return new self($client, $http, $requestFactory);
     }
 
     /**
      * Apply new options (e.g. switch debug mode, change base URL) to the underlying client.
      */
-    public function withOptions(Options $options): void
+    public function setOptions(Options $options): void
     {
         $this->client->setOptions($options);
     }

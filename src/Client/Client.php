@@ -13,7 +13,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Pkirillw\MaxBotApi\Exception\ApiException;
-use Pkirillw\MaxBotApi\Exception\InvalidUrlException;
+use Pkirillw\MaxBotApi\Exception\EmptyTokenException;
 use Pkirillw\MaxBotApi\Exception\NetworkException;
 use Pkirillw\MaxBotApi\Exception\SerializationException;
 use Pkirillw\MaxBotApi\Exception\TimeoutException;
@@ -43,7 +43,7 @@ final class Client
         private StreamFactoryInterface $streamFactory,
     ) {
         if ($token === '') {
-            throw new InvalidUrlException('token is empty');
+            throw new EmptyTokenException();
         }
         $this->options = $options;
     }

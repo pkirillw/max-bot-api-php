@@ -81,6 +81,12 @@ final class Message
         return $this;
     }
 
+    public function setBotToken(string $botToken): self
+    {
+        $this->botToken = $botToken;
+        return $this;
+    }
+
     /**
      * @param list<string> $phoneNumbers
      */

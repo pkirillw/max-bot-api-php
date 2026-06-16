@@ -10,17 +10,19 @@ namespace Pkirillw\MaxBotApi\Client;
  * Created via Options::default() and mutated via with*() helpers
  * (every with* returns a new instance, so the same options object can be
  * shared safely across requests).
+ *
+ * HTTP timeouts are intentionally NOT configured here — PSR-18 has no
+ * standard API for them. Configure the timeout on your PSR-18 client
+ * implementation (e.g. Guzzle's `timeout` option) before passing it in.
  */
 final readonly class Options
 {
     public const DEFAULT_BASE_URL = 'https://platform-api.max.ru/';
     public const DEFAULT_API_VERSION = '1.2.5';
-    public const DEFAULT_TIMEOUT_SECONDS = 30;
 
     public function __construct(
         public string $baseUrl = self::DEFAULT_BASE_URL,
         public string $version = self::DEFAULT_API_VERSION,
-        public int $timeoutSeconds = self::DEFAULT_TIMEOUT_SECONDS,
         public bool $debug = false,
         public ?int $debugChatId = null,
         public bool $keepRawUpdates = false,
@@ -36,7 +38,6 @@ final readonly class Options
         return new self(
             baseUrl: $baseUrl,
             version: $this->version,
-            timeoutSeconds: $this->timeoutSeconds,
             debug: $this->debug,
             debugChatId: $this->debugChatId,
             keepRawUpdates: $this->keepRawUpdates,
@@ -48,19 +49,6 @@ final readonly class Options
         return new self(
             baseUrl: $this->baseUrl,
             version: $version,
-            timeoutSeconds: $this->timeoutSeconds,
-            debug: $this->debug,
-            debugChatId: $this->debugChatId,
-            keepRawUpdates: $this->keepRawUpdates,
-        );
-    }
-
-    public function withTimeout(int $seconds): self
-    {
-        return new self(
-            baseUrl: $this->baseUrl,
-            version: $this->version,
-            timeoutSeconds: $seconds,
             debug: $this->debug,
             debugChatId: $this->debugChatId,
             keepRawUpdates: $this->keepRawUpdates,
@@ -72,7 +60,6 @@ final readonly class Options
         return new self(
             baseUrl: $this->baseUrl,
             version: $this->version,
-            timeoutSeconds: $this->timeoutSeconds,
             debug: $debug,
             debugChatId: $this->debugChatId,
             keepRawUpdates: $this->keepRawUpdates,
@@ -84,7 +71,6 @@ final readonly class Options
         return new self(
             baseUrl: $this->baseUrl,
             version: $this->version,
-            timeoutSeconds: $this->timeoutSeconds,
             debug: $this->debug,
             debugChatId: $chatId,
             keepRawUpdates: $this->keepRawUpdates,
@@ -96,7 +82,6 @@ final readonly class Options
         return new self(
             baseUrl: $this->baseUrl,
             version: $this->version,
-            timeoutSeconds: $this->timeoutSeconds,
             debug: $this->debug,
             debugChatId: $this->debugChatId,
             keepRawUpdates: $keep,

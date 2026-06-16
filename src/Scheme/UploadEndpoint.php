@@ -27,6 +27,6 @@ final readonly class UploadEndpoint implements \JsonSerializable
         return array_filter([
             'url' => $this->url,
             'token' => $this->token,
-        ], static fn(mixed $v) => $v !== null && $v !== '');
+        ], static fn(mixed $v) => $v !== '');
     }
 }

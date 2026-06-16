@@ -50,8 +50,11 @@ final class WebhookHandler implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        if ($this->secret !== '' && $request->getHeaderLine(Client::SECRET_HEADER) !== $this->secret) {
-            return $this->jsonResponse(401, ['error' => 'invalid secret']);
+        if ($this->secret !== '') {
+            $received = $request->getHeaderLine(Client::SECRET_HEADER);
+            if ($received === '' || !hash_equals($this->secret, $received)) {
+                return $this->jsonResponse(401, ['error' => 'invalid secret']);
+            }
         }
 
         if ($request->getMethod() !== 'POST') {

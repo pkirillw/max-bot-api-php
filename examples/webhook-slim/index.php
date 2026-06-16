@@ -34,9 +34,12 @@ $api = Api::create(
     streamFactory: $psr17,
 );
 
-// Subscribe webhook once (delete this block after the first invocation).
-$host = getenv('HOST') ?: 'https://your-public-host.example';
-$api->subscriptions->subscribe($host . '/webhook', [], $secret);
+// Subscribe webhook once. Set SUBSCRIBE_WEBHOOK=1 in the env on first deploy,
+// then unset — repeated subscribe calls will register duplicate deliveries.
+if (getenv('SUBSCRIBE_WEBHOOK') === '1') {
+    $host = getenv('HOST') ?: 'https://your-public-host.example';
+    $api->subscriptions->subscribe($host . '/webhook', [], $secret);
+}
 
 $app = AppFactory::create(determineResponseFactory: $psr17);
 

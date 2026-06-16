@@ -26,11 +26,11 @@ vendor/bin/phpunit --coverage-text    # с покрытием (нужен xdebug
 
 ## Линтинг
 
-Рекомендуется PHPStan на уровне 6+:
+PHPStan на уровне 6+ уже подключён в `composer.json` (`require-dev`):
 
 ```sh
-composer require --dev phpstan/phpstan
-vendor/bin/phpstan analyse src level 6
+vendor/bin/phpstan analyse                # использует phpstan.neon
+make phpstan                              # то же через docker
 ```
 
 ## Стиль кода

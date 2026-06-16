@@ -42,3 +42,6 @@ jobs:
 
       - name: Run test suite
         run: vendor/bin/phpunit --colors=never
+
+      - name: Static analysis
+        run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
