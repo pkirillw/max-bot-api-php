@@ -16,7 +16,15 @@ final class UpdateParser
      */
     public static function fromJsonString(string $json, bool $keepDebugRaw = false): ?UpdateInterface
     {
-        $data = json_decode($json, true);
+        try {
+            $data = json_decode($json, true, flags: JSON_THROW_ON_ERROR);
+        } catch (\JsonException $e) {
+            throw new \Pkirillw\MaxBotApi\Exception\UpdateParsingException(
+                'invalid webhook JSON: ' . $e->getMessage(),
+                0,
+                $e,
+            );
+        }
         if (!is_array($data)) {
             return null;
         }
@@ -28,8 +36,8 @@ final class UpdateParser
      */
     public static function fromArray(array $data, string $debugRaw = ''): ?UpdateInterface
     {
-        $type = UpdateType::tryFrom((string)($data['update_type'] ?? ''));
-        $timestamp = (int)($data['timestamp'] ?? 0);
+        $type = UpdateType::tryFrom((string) ($data['update_type'] ?? ''));
+        $timestamp = (int) ($data['timestamp'] ?? 0);
         return match ($type) {
             UpdateType::MessageCallback => MessageCallbackUpdate::fromJson($data, $debugRaw),
             UpdateType::MessageCreated => MessageCreatedUpdate::fromJson($data, $debugRaw),
