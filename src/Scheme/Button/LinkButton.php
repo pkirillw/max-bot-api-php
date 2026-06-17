@@ -29,8 +29,8 @@ final readonly class LinkButton implements ButtonInterface
     public static function fromJson(array $data): self
     {
         return new self(
-            text: (string)($data['text'] ?? ''),
-            url: (string)($data['url'] ?? ''),
+            text: (string) ($data['text'] ?? ''),
+            url: (string) ($data['url'] ?? ''),
         );
     }
 

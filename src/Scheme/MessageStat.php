@@ -13,7 +13,7 @@ final readonly class MessageStat implements \JsonSerializable
      */
     public static function fromJson(array $data): self
     {
-        return new self(views: (int)($data['views'] ?? 0));
+        return new self(views: (int) ($data['views'] ?? 0));
     }
 
     public function jsonSerialize(): array

@@ -14,9 +14,7 @@ use Pkirillw\MaxBotApi\Scheme\SubscriptionRequestBody;
  */
 final readonly class Subscriptions
 {
-    public function __construct(private Client $client)
-    {
-    }
+    public function __construct(private Client $client) {}
 
     public function getSubscriptions(): GetSubscriptionsResult
     {

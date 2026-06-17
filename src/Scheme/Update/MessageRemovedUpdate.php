@@ -39,10 +39,10 @@ final readonly class MessageRemovedUpdate extends AbstractUpdate
     public static function fromJson(array $data, string $debugRaw = ''): self
     {
         return new self(
-            messageId: (string)($data['message_id'] ?? ''),
-            chatId: (int)($data['chat_id'] ?? 0),
-            userId: (int)($data['user_id'] ?? 0),
-            timestamp: (int)($data['timestamp'] ?? 0),
+            messageId: (string) ($data['message_id'] ?? ''),
+            chatId: (int) ($data['chat_id'] ?? 0),
+            userId: (int) ($data['user_id'] ?? 0),
+            timestamp: (int) ($data['timestamp'] ?? 0),
             debugRaw: $debugRaw,
         );
     }

@@ -8,9 +8,7 @@ use Pkirillw\MaxBotApi\Scheme\Enum\AttachmentType;
 
 final readonly class PhotoAttachment implements AttachmentInterface
 {
-    public function __construct(public PhotoAttachmentPayload $payload)
-    {
-    }
+    public function __construct(public PhotoAttachmentPayload $payload) {}
 
     public function getType(): AttachmentType
     {
@@ -22,7 +20,7 @@ final readonly class PhotoAttachment implements AttachmentInterface
      */
     public static function fromJson(array $data): self
     {
-        return new self(payload: PhotoAttachmentPayload::fromJson((array)($data['payload'] ?? [])));
+        return new self(payload: PhotoAttachmentPayload::fromJson((array) ($data['payload'] ?? [])));
     }
 
     public function jsonSerialize(): array

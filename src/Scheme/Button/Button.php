@@ -29,8 +29,8 @@ final readonly class Button implements ButtonInterface
     public static function fromJson(array $data): self
     {
         return new self(
-            type: ButtonType::from((string)($data['type'] ?? '')),
-            text: (string)($data['text'] ?? ''),
+            type: ButtonType::from((string) ($data['type'] ?? '')),
+            text: (string) ($data['text'] ?? ''),
         );
     }
 

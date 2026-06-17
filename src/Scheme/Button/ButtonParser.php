@@ -16,7 +16,7 @@ final class ButtonParser
      */
     public static function fromJson(array $data): ?ButtonInterface
     {
-        $type = ButtonType::tryFrom((string)($data['type'] ?? ''));
+        $type = ButtonType::tryFrom((string) ($data['type'] ?? ''));
         return match ($type) {
             ButtonType::Link => LinkButton::fromJson($data),
             ButtonType::Callback => CallbackButton::fromJson($data),

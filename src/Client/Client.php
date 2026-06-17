@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Pkirillw\MaxBotApi\Client;
 
+use Pkirillw\MaxBotApi\Exception\ApiException;
+use Pkirillw\MaxBotApi\Exception\EmptyTokenException;
+use Pkirillw\MaxBotApi\Exception\NetworkException;
+use Pkirillw\MaxBotApi\Exception\SerializationException;
+use Pkirillw\MaxBotApi\Exception\TimeoutException;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface as PsrHttpClientInterface;
 use Psr\Http\Client\NetworkExceptionInterface as PsrNetworkException;
@@ -12,11 +17,6 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamFactoryInterface;
-use Pkirillw\MaxBotApi\Exception\ApiException;
-use Pkirillw\MaxBotApi\Exception\EmptyTokenException;
-use Pkirillw\MaxBotApi\Exception\NetworkException;
-use Pkirillw\MaxBotApi\Exception\SerializationException;
-use Pkirillw\MaxBotApi\Exception\TimeoutException;
 
 /**
  * Thin wrapper over PSR-18 / PSR-17 that adds:
@@ -109,7 +109,7 @@ final class Client
      */
     public function decodeResponse(ResponseInterface $response, string $operation): array
     {
-        $body = (string)$response->getBody();
+        $body = (string) $response->getBody();
         if ($response->getStatusCode() < 200 || $response->getStatusCode() >= 300) {
             $this->raiseApiError($response->getStatusCode(), $body, $operation);
         }
@@ -191,8 +191,8 @@ final class Client
             try {
                 $decoded = json_decode($body, true, flags: JSON_THROW_ON_ERROR);
                 if (is_array($decoded)) {
-                    $apiCode = (string)($decoded['code'] ?? '');
-                    $details = isset($decoded['message']) ? (string)$decoded['message'] : null;
+                    $apiCode = (string) ($decoded['code'] ?? '');
+                    $details = isset($decoded['message']) ? (string) $decoded['message'] : null;
                 }
             } catch (\JsonException) {
                 $details = $body;

@@ -31,9 +31,9 @@ final readonly class CallbackButton implements ButtonInterface
     public static function fromJson(array $data): self
     {
         return new self(
-            text: (string)($data['text'] ?? ''),
-            payload: (string)($data['payload'] ?? ''),
-            intent: isset($data['intent']) ? Intent::from((string)$data['intent']) : Intent::Default,
+            text: (string) ($data['text'] ?? ''),
+            payload: (string) ($data['payload'] ?? ''),
+            intent: isset($data['intent']) ? Intent::from((string) $data['intent']) : Intent::Default,
         );
     }
 

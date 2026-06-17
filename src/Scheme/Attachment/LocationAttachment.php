@@ -24,8 +24,8 @@ final readonly class LocationAttachment implements AttachmentInterface
     public static function fromJson(array $data): self
     {
         return new self(
-            latitude: (float)($data['latitude'] ?? 0.0),
-            longitude: (float)($data['longitude'] ?? 0.0),
+            latitude: (float) ($data['latitude'] ?? 0.0),
+            longitude: (float) ($data['longitude'] ?? 0.0),
         );
     }
 

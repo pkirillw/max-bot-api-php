@@ -17,8 +17,8 @@ final readonly class StickerAttachmentPayload implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            url: (string)($data['url'] ?? ''),
-            code: (string)($data['code'] ?? ''),
+            url: (string) ($data['url'] ?? ''),
+            code: (string) ($data['code'] ?? ''),
         );
     }
 

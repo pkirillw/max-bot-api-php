@@ -22,13 +22,13 @@ final readonly class User implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            userId: (int)($data['user_id'] ?? 0),
-            name: (string)($data['name'] ?? ''),
+            userId: (int) ($data['user_id'] ?? 0),
+            name: (string) ($data['name'] ?? ''),
             username: $data['username'] ?? null,
             firstName: $data['first_name'] ?? null,
             lastName: $data['last_name'] ?? null,
-            isBot: (bool)($data['is_bot'] ?? false),
-            lastActivityTime: isset($data['last_activity_time']) ? (int)$data['last_activity_time'] : null,
+            isBot: (bool) ($data['is_bot'] ?? false),
+            lastActivityTime: isset($data['last_activity_time']) ? (int) $data['last_activity_time'] : null,
         );
     }
 

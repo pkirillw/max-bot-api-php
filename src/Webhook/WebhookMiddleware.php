@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Pkirillw\MaxBotApi\Webhook;
 
+use Pkirillw\MaxBotApi\Scheme\Update\UpdateInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Pkirillw\MaxBotApi\Scheme\Update\UpdateInterface;
 
 /**
  * PSR-15 middleware variant of {@see WebhookHandler}. Use when you need to

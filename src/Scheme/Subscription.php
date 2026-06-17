@@ -23,10 +23,10 @@ final readonly class Subscription implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            url: (string)($data['url'] ?? ''),
-            time: (int)($data['time'] ?? 0),
+            url: (string) ($data['url'] ?? ''),
+            time: (int) ($data['time'] ?? 0),
             secret: $data['secret'] ?? null,
-            updateTypes: array_values(array_map('strval', (array)($data['update_types'] ?? []))),
+            updateTypes: array_values(array_map('strval', (array) ($data['update_types'] ?? []))),
             version: $data['version'] ?? null,
         );
     }

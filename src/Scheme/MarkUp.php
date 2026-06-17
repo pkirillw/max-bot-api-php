@@ -22,10 +22,10 @@ final readonly class MarkUp implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            from: (int)($data['from'] ?? 0),
-            length: (int)($data['length'] ?? 0),
-            userId: (int)($data['user_id'] ?? 0),
-            type: isset($data['type']) ? MarkupType::from((string)$data['type']) : null,
+            from: (int) ($data['from'] ?? 0),
+            length: (int) ($data['length'] ?? 0),
+            userId: (int) ($data['user_id'] ?? 0),
+            type: isset($data['type']) ? MarkupType::from((string) $data['type']) : null,
             url: $data['url'] ?? null,
         );
     }

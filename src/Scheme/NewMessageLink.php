@@ -19,8 +19,8 @@ final readonly class NewMessageLink implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            type: MessageLinkType::from((string)($data['type'] ?? '')),
-            mid: (string)($data['mid'] ?? ''),
+            type: MessageLinkType::from((string) ($data['type'] ?? '')),
+            mid: (string) ($data['mid'] ?? ''),
         );
     }
 

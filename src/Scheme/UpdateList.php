@@ -20,8 +20,8 @@ final readonly class UpdateList implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            updates: array_values((array)($data['updates'] ?? [])),
-            marker: isset($data['marker']) ? (int)$data['marker'] : null,
+            updates: array_values((array) ($data['updates'] ?? [])),
+            marker: isset($data['marker']) ? (int) $data['marker'] : null,
         );
     }
 

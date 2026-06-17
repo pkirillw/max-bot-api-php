@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Pkirillw\MaxBotApi\Webhook;
 
-use Psr\Http\Message\ResponseFactoryInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Server\RequestHandlerInterface;
 use Pkirillw\MaxBotApi\Client\Client;
 use Pkirillw\MaxBotApi\Exception\UpdateParsingException;
 use Pkirillw\MaxBotApi\Scheme\Update\UpdateInterface;
 use Pkirillw\MaxBotApi\Scheme\Update\UpdateParser;
+use Psr\Http\Message\ResponseFactoryInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Psr\Http\Server\RequestHandlerInterface;
 
 /**
  * PSR-15 request handler that turns MAX webhook calls into typed UpdateInterface events.
@@ -61,7 +61,7 @@ final class WebhookHandler implements RequestHandlerInterface
             return $this->jsonResponse(405, ['error' => 'method not allowed']);
         }
 
-        $body = (string)$request->getBody();
+        $body = (string) $request->getBody();
         if ($body === '') {
             return $this->jsonResponse(400, ['error' => 'empty body']);
         }

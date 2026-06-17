@@ -8,9 +8,7 @@ use Pkirillw\MaxBotApi\Scheme\Enum\AttachmentType;
 
 final readonly class StickerAttachmentRequest implements AttachmentRequestInterface
 {
-    public function __construct(public StickerAttachmentRequestPayload $payload)
-    {
-    }
+    public function __construct(public StickerAttachmentRequestPayload $payload) {}
 
     public function getType(): AttachmentType
     {

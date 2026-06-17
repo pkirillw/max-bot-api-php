@@ -29,8 +29,8 @@ final readonly class RequestGeoLocationButton implements ButtonInterface
     public static function fromJson(array $data): self
     {
         return new self(
-            text: (string)($data['text'] ?? ''),
-            quick: (bool)($data['quick'] ?? false),
+            text: (string) ($data['text'] ?? ''),
+            quick: (bool) ($data['quick'] ?? false),
         );
     }
 

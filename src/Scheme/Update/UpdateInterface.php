@@ -19,7 +19,6 @@ interface UpdateInterface
     public function getDebugRaw(): string;
 
     /**
-     * @return \DateTimeImmutable|null
      */
     public function getUpdateTime(): ?\DateTimeImmutable;
 }

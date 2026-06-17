@@ -9,9 +9,7 @@ use Pkirillw\MaxBotApi\Scheme\Keyboard;
 
 final readonly class InlineKeyboardAttachment implements AttachmentInterface
 {
-    public function __construct(public Keyboard $payload)
-    {
-    }
+    public function __construct(public Keyboard $payload) {}
 
     public function getType(): AttachmentType
     {
@@ -23,7 +21,7 @@ final readonly class InlineKeyboardAttachment implements AttachmentInterface
      */
     public static function fromJson(array $data): self
     {
-        return new self(payload: Keyboard::fromJson((array)($data['payload'] ?? [])));
+        return new self(payload: Keyboard::fromJson((array) ($data['payload'] ?? [])));
     }
 
     public function jsonSerialize(): array

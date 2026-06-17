@@ -60,7 +60,7 @@ final class ClientTest extends TestCase
         self::assertSame('tok-1', $captured->getHeaderLine('Authorization'));
         self::assertStringContainsString('max-bot-api-client-php/', $captured->getHeaderLine('User-Agent'));
         self::assertStringContainsString('v=9.9', $captured->getUri()->getQuery());
-        self::assertSame('https://platform-api.max.ru/me?v=9.9', (string)$captured->getUri());
+        self::assertSame('https://platform-api.max.ru/me?v=9.9', (string) $captured->getUri());
     }
 
     public function testRequestJsonThrowsApiErrorOnNon2xx(): void

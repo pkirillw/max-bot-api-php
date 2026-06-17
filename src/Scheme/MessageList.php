@@ -9,9 +9,7 @@ final readonly class MessageList implements \JsonSerializable
     /**
      * @param list<Message> $messages
      */
-    public function __construct(public array $messages = [])
-    {
-    }
+    public function __construct(public array $messages = []) {}
 
     /**
      * @param array<string, mixed> $data
@@ -20,7 +18,7 @@ final readonly class MessageList implements \JsonSerializable
     {
         $messages = [];
         foreach (($data['messages'] ?? []) as $message) {
-            $messages[] = Message::fromJson((array)$message);
+            $messages[] = Message::fromJson((array) $message);
         }
         return new self(messages: $messages);
     }

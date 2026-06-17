@@ -49,7 +49,7 @@ final class UploadsMultipartTest extends TestCase
         $uploads->uploadMediaFromBytes(UploadType::Audio, 'data', 'weird"name.mp3');
 
         self::assertNotNull($captured);
-        $body = (string)$captured->getBody();
+        $body = (string) $captured->getBody();
         self::assertStringContainsString('filename="weird\"name.mp3"', $body);
         self::assertStringNotContainsString('filename="weird"name.mp3"', $body);
     }

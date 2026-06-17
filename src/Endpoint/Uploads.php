@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Pkirillw\MaxBotApi\Endpoint;
 
-use Psr\Http\Client\ClientExceptionInterface;
-use Psr\Http\Client\ClientInterface as PsrHttpClientInterface;
-use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\ResponseInterface;
 use Pkirillw\MaxBotApi\Client\Client;
 use Pkirillw\MaxBotApi\Exception\ApiException;
 use Pkirillw\MaxBotApi\Exception\MaxBotApiException;
@@ -16,6 +12,10 @@ use Pkirillw\MaxBotApi\Scheme\Attachment\PhotoTokens;
 use Pkirillw\MaxBotApi\Scheme\Attachment\UploadedInfo;
 use Pkirillw\MaxBotApi\Scheme\Enum\UploadType;
 use Pkirillw\MaxBotApi\Scheme\UploadEndpoint;
+use Psr\Http\Client\ClientExceptionInterface;
+use Psr\Http\Client\ClientInterface as PsrHttpClientInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * /uploads endpoints — upload media to MAX servers, get back reusable tokens.
@@ -33,8 +33,7 @@ final readonly class Uploads
         private Client $client,
         private PsrHttpClientInterface $http,
         private RequestFactoryInterface $requestFactory,
-    ) {
-    }
+    ) {}
 
     public function uploadMediaFromFile(UploadType $type, string $filename): UploadedInfo
     {
@@ -153,7 +152,7 @@ final readonly class Uploads
     private function decodeUploadedInfo(ResponseInterface $response, UploadType $type, string $token): UploadedInfo
     {
         $this->ensureSuccess($response);
-        $body = (string)$response->getBody();
+        $body = (string) $response->getBody();
 
         // AUDIO/VIDEO/FILE: server returns no body — token from /uploads is authoritative.
         if ($type !== UploadType::Photo) {
@@ -171,7 +170,7 @@ final readonly class Uploads
     private function decodePhotoTokens(ResponseInterface $response, string $token): PhotoTokens
     {
         $this->ensureSuccess($response);
-        return $this->parsePhotoTokens((string)$response->getBody(), $token);
+        return $this->parsePhotoTokens((string) $response->getBody(), $token);
     }
 
     private function ensureSuccess(ResponseInterface $response): void
@@ -181,14 +180,14 @@ final readonly class Uploads
             return;
         }
 
-        $body = (string)$response->getBody();
+        $body = (string) $response->getBody();
         $apiCode = '';
         $details = null;
         try {
             $decoded = json_decode($body, true, flags: JSON_THROW_ON_ERROR);
             if (is_array($decoded)) {
-                $apiCode = (string)($decoded['code'] ?? '');
-                $details = isset($decoded['message']) ? (string)$decoded['message'] : null;
+                $apiCode = (string) ($decoded['code'] ?? '');
+                $details = isset($decoded['message']) ? (string) $decoded['message'] : null;
             }
         } catch (\JsonException) {
             $details = $body;
@@ -230,7 +229,7 @@ final readonly class Uploads
         if ($status < 200 || $status >= 300) {
             throw new MaxBotApiException(sprintf('failed to fetch URL %s: HTTP %d', $url, $status));
         }
-        return (string)$response->getBody();
+        return (string) $response->getBody();
     }
 
     private function filenameFromUrl(string $url): string

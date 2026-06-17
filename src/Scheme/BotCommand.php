@@ -17,7 +17,7 @@ final readonly class BotCommand implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            name: (string)($data['name'] ?? ''),
+            name: (string) ($data['name'] ?? ''),
             description: $data['description'] ?? null,
         );
     }

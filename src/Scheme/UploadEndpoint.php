@@ -17,8 +17,8 @@ final readonly class UploadEndpoint implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            url: (string)($data['url'] ?? ''),
-            token: (string)($data['token'] ?? ''),
+            url: (string) ($data['url'] ?? ''),
+            token: (string) ($data['token'] ?? ''),
         );
     }
 

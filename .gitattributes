@@ -6,6 +6,8 @@
 /tests                  export-ignore
 /phpunit.xml.dist       export-ignore
 /.phpunit.cache         export-ignore
+/.php-cs-fixer.dist.php export-ignore
+/.php-cs-fixer.cache    export-ignore
 
 # Локальная dev-инфраструктура (Docker/Make)
 /Dockerfile             export-ignore

@@ -19,10 +19,10 @@ final readonly class ContactAttachmentRequestPayload implements \JsonSerializabl
     public static function fromJson(array $data): self
     {
         return new self(
-            name: (string)($data['name'] ?? ''),
-            contactId: (int)($data['contact_id'] ?? 0),
-            vcfInfo: (string)($data['vcf_info'] ?? ''),
-            vcfPhone: (string)($data['vcf_phone'] ?? ''),
+            name: (string) ($data['name'] ?? ''),
+            contactId: (int) ($data['contact_id'] ?? 0),
+            vcfInfo: (string) ($data['vcf_info'] ?? ''),
+            vcfPhone: (string) ($data['vcf_phone'] ?? ''),
         );
     }
 

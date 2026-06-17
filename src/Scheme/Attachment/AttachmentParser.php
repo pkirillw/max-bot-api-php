@@ -16,7 +16,7 @@ final class AttachmentParser
      */
     public static function fromJson(array $data): ?AttachmentInterface
     {
-        $type = AttachmentType::tryFrom((string)($data['type'] ?? ''));
+        $type = AttachmentType::tryFrom((string) ($data['type'] ?? ''));
         return match ($type) {
             AttachmentType::Audio => AudioAttachment::fromJson($data),
             AttachmentType::Video => VideoAttachment::fromJson($data),

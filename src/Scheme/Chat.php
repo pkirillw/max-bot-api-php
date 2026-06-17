@@ -34,19 +34,19 @@ final readonly class Chat implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            chatId: (int)($data['chat_id'] ?? 0),
-            type: isset($data['type']) ? ChatType::from((string)$data['type']) : null,
-            status: isset($data['status']) ? ChatStatus::from((string)$data['status']) : null,
+            chatId: (int) ($data['chat_id'] ?? 0),
+            type: isset($data['type']) ? ChatType::from((string) $data['type']) : null,
+            status: isset($data['status']) ? ChatStatus::from((string) $data['status']) : null,
             title: $data['title'] ?? null,
-            icon: isset($data['icon']) ? Image::fromJson((array)$data['icon']) : null,
-            lastEventTime: (int)($data['last_event_time'] ?? 0),
-            participantsCount: (int)($data['participants_count'] ?? 0),
-            ownerId: (int)($data['owner_id'] ?? 0),
-            participants: isset($data['participants']) ? (array)$data['participants'] : null,
-            isPublic: (bool)($data['is_public'] ?? false),
+            icon: isset($data['icon']) ? Image::fromJson((array) $data['icon']) : null,
+            lastEventTime: (int) ($data['last_event_time'] ?? 0),
+            participantsCount: (int) ($data['participants_count'] ?? 0),
+            ownerId: (int) ($data['owner_id'] ?? 0),
+            participants: isset($data['participants']) ? (array) $data['participants'] : null,
+            isPublic: (bool) ($data['is_public'] ?? false),
             link: $data['link'] ?? null,
             description: $data['description'] ?? null,
-            messagesCount: (int)($data['messages_count'] ?? 0),
+            messagesCount: (int) ($data['messages_count'] ?? 0),
         );
     }
 

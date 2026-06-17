@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Pkirillw\MaxBotApi\Client;
 
+use Pkirillw\MaxBotApi\Exception\EmptyTokenException;
 use Psr\Http\Client\ClientInterface as PsrHttpClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
-use Pkirillw\MaxBotApi\Exception\EmptyTokenException;
 
 /**
  * Convenience constructor for {@see Client}. Useful when the user already

@@ -25,7 +25,7 @@ final readonly class RequestContactButton implements ButtonInterface
      */
     public static function fromJson(array $data): self
     {
-        return new self(text: (string)($data['text'] ?? ''));
+        return new self(text: (string) ($data['text'] ?? ''));
     }
 
     public function jsonSerialize(): array

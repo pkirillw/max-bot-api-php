@@ -22,13 +22,13 @@ final readonly class Message implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            sender: isset($data['sender']) ? User::fromJson((array)$data['sender']) : null,
-            recipient: isset($data['recipient']) ? Recipient::fromJson((array)$data['recipient']) : null,
-            timestamp: (int)($data['timestamp'] ?? 0),
-            link: isset($data['link']) ? LinkedMessage::fromJson((array)$data['link']) : null,
-            body: isset($data['body']) ? MessageBody::fromJson((array)$data['body']) : null,
-            stat: isset($data['stat']) ? MessageStat::fromJson((array)$data['stat']) : null,
-            url: (string)($data['url'] ?? ''),
+            sender: isset($data['sender']) ? User::fromJson((array) $data['sender']) : null,
+            recipient: isset($data['recipient']) ? Recipient::fromJson((array) $data['recipient']) : null,
+            timestamp: (int) ($data['timestamp'] ?? 0),
+            link: isset($data['link']) ? LinkedMessage::fromJson((array) $data['link']) : null,
+            body: isset($data['body']) ? MessageBody::fromJson((array) $data['body']) : null,
+            stat: isset($data['stat']) ? MessageStat::fromJson((array) $data['stat']) : null,
+            url: (string) ($data['url'] ?? ''),
         );
     }
 

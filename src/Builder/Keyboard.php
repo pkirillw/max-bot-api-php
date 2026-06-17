@@ -4,15 +4,6 @@ declare(strict_types=1);
 
 namespace Pkirillw\MaxBotApi\Builder;
 
-use Pkirillw\MaxBotApi\Scheme\Button\ButtonInterface;
-use Pkirillw\MaxBotApi\Scheme\Button\CallbackButton;
-use Pkirillw\MaxBotApi\Scheme\Button\ClipboardButton;
-use Pkirillw\MaxBotApi\Scheme\Button\LinkButton;
-use Pkirillw\MaxBotApi\Scheme\Button\MessageButton;
-use Pkirillw\MaxBotApi\Scheme\Button\OpenAppButton;
-use Pkirillw\MaxBotApi\Scheme\Button\RequestContactButton;
-use Pkirillw\MaxBotApi\Scheme\Button\RequestGeoLocationButton;
-use Pkirillw\MaxBotApi\Scheme\Enum\Intent;
 use Pkirillw\MaxBotApi\Scheme\Keyboard as SchemeKeyboard;
 
 /**

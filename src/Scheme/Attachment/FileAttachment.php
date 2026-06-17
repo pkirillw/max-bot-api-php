@@ -25,9 +25,9 @@ final readonly class FileAttachment implements AttachmentInterface
     public static function fromJson(array $data): self
     {
         return new self(
-            payload: FileAttachmentPayload::fromJson((array)($data['payload'] ?? [])),
-            filename: (string)($data['filename'] ?? ''),
-            size: (int)($data['size'] ?? 0),
+            payload: FileAttachmentPayload::fromJson((array) ($data['payload'] ?? [])),
+            filename: (string) ($data['filename'] ?? ''),
+            size: (int) ($data['size'] ?? 0),
         );
     }
 

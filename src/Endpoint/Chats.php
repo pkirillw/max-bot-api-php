@@ -10,19 +10,17 @@ use Pkirillw\MaxBotApi\Scheme\ChatList;
 use Pkirillw\MaxBotApi\Scheme\ChatMember;
 use Pkirillw\MaxBotApi\Scheme\ChatMembersList;
 use Pkirillw\MaxBotApi\Scheme\ChatPatch;
+use Pkirillw\MaxBotApi\Scheme\Enum\SenderAction;
 use Pkirillw\MaxBotApi\Scheme\PinMessageBody;
 use Pkirillw\MaxBotApi\Scheme\SimpleQueryResult;
 use Pkirillw\MaxBotApi\Scheme\UserIdsList;
-use Pkirillw\MaxBotApi\Scheme\Enum\SenderAction;
 
 /**
  * /chats endpoints — chats the bot participates in.
  */
 final readonly class Chats
 {
-    public function __construct(private Client $client)
-    {
-    }
+    public function __construct(private Client $client) {}
 
     public function getChats(int $count = 0, int $marker = 0): ChatList
     {

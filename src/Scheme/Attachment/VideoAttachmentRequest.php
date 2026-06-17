@@ -8,9 +8,7 @@ use Pkirillw\MaxBotApi\Scheme\Enum\AttachmentType;
 
 final readonly class VideoAttachmentRequest implements AttachmentRequestInterface
 {
-    public function __construct(public UploadedInfo $payload)
-    {
-    }
+    public function __construct(public UploadedInfo $payload) {}
 
     public function getType(): AttachmentType
     {

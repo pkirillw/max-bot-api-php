@@ -25,13 +25,13 @@ final readonly class Error implements \JsonSerializable
     {
         $results = [];
         foreach (($data['results'] ?? []) as $result) {
-            $results[] = Results::fromJson((array)$result);
+            $results[] = Results::fromJson((array) $result);
         }
         return new self(
-            errorText: (string)($data['error'] ?? ''),
-            code: (string)($data['code'] ?? ''),
-            message: (string)($data['message'] ?? ''),
-            numberExist: array_values(array_map('strval', (array)($data['existing_phone_numbers'] ?? []))),
+            errorText: (string) ($data['error'] ?? ''),
+            code: (string) ($data['code'] ?? ''),
+            message: (string) ($data['message'] ?? ''),
+            numberExist: array_values(array_map('strval', (array) ($data['existing_phone_numbers'] ?? []))),
             results: $results,
         );
     }

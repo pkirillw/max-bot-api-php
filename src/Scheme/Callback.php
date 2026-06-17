@@ -19,10 +19,10 @@ final readonly class Callback implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            timestamp: (int)($data['timestamp'] ?? 0),
-            callbackId: (string)($data['callback_id'] ?? ''),
-            payload: (string)($data['payload'] ?? ''),
-            user: isset($data['user']) ? User::fromJson((array)$data['user']) : null,
+            timestamp: (int) ($data['timestamp'] ?? 0),
+            callbackId: (string) ($data['callback_id'] ?? ''),
+            payload: (string) ($data['payload'] ?? ''),
+            user: isset($data['user']) ? User::fromJson((array) $data['user']) : null,
         );
     }
 

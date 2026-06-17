@@ -20,9 +20,9 @@ final readonly class ContactAttachmentPayload implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            vcfInfo: (string)($data['vcf_info'] ?? ''),
-            maxInfo: isset($data['max_info']) ? User::fromJson((array)$data['max_info']) : null,
-            hash: (string)($data['hash'] ?? ''),
+            vcfInfo: (string) ($data['vcf_info'] ?? ''),
+            maxInfo: isset($data['max_info']) ? User::fromJson((array) $data['max_info']) : null,
+            hash: (string) ($data['hash'] ?? ''),
         );
     }
 

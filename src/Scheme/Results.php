@@ -17,8 +17,8 @@ final readonly class Results implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            phoneNumber: (string)($data['phone_number'] ?? ''),
-            status: (string)($data['status'] ?? ''),
+            phoneNumber: (string) ($data['phone_number'] ?? ''),
+            status: (string) ($data['status'] ?? ''),
         );
     }
 

@@ -25,9 +25,9 @@ final readonly class StickerAttachment implements AttachmentInterface
     public static function fromJson(array $data): self
     {
         return new self(
-            payload: StickerAttachmentPayload::fromJson((array)($data['payload'] ?? [])),
-            width: (int)($data['width'] ?? 0),
-            height: (int)($data['height'] ?? 0),
+            payload: StickerAttachmentPayload::fromJson((array) ($data['payload'] ?? [])),
+            width: (int) ($data['width'] ?? 0),
+            height: (int) ($data['height'] ?? 0),
         );
     }
 

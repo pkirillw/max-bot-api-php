@@ -8,9 +8,7 @@ use Pkirillw\MaxBotApi\Scheme\Enum\AttachmentType;
 
 final readonly class ContactAttachmentRequest implements AttachmentRequestInterface
 {
-    public function __construct(public ContactAttachmentRequestPayload $payload)
-    {
-    }
+    public function __construct(public ContactAttachmentRequestPayload $payload) {}
 
     public function getType(): AttachmentType
     {

@@ -29,7 +29,7 @@ abstract readonly class AbstractUpdate implements UpdateInterface
             return null;
         }
         // MAX передаёт миллисекунды.
-        return (new \DateTimeImmutable())->setTimestamp((int)floor($this->timestamp / 1000));
+        return (new \DateTimeImmutable())->setTimestamp((int) floor($this->timestamp / 1000));
     }
 
     abstract public function getUpdateType(): UpdateType;

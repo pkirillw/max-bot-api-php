@@ -29,8 +29,8 @@ final readonly class ClipboardButton implements ButtonInterface
     public static function fromJson(array $data): self
     {
         return new self(
-            text: (string)($data['text'] ?? ''),
-            payload: (string)($data['payload'] ?? ''),
+            text: (string) ($data['text'] ?? ''),
+            payload: (string) ($data['payload'] ?? ''),
         );
     }
 

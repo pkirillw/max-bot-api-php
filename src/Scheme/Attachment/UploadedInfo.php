@@ -17,8 +17,8 @@ final readonly class UploadedInfo implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            fileId: (int)($data['file_id'] ?? 0),
-            token: (string)($data['token'] ?? ''),
+            fileId: (int) ($data['file_id'] ?? 0),
+            token: (string) ($data['token'] ?? ''),
         );
     }
 

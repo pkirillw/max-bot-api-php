@@ -32,22 +32,22 @@ final readonly class MessageBody implements \JsonSerializable
         $rawAttachments = array_values($data['attachments'] ?? []);
         $attachments = [];
         foreach ($rawAttachments as $rawAttachment) {
-            $attachment = AttachmentParser::fromJson((array)$rawAttachment);
+            $attachment = AttachmentParser::fromJson((array) $rawAttachment);
             if ($attachment !== null) {
                 $attachments[] = $attachment;
             }
         }
         $markups = [];
         foreach (($data['markup'] ?? []) as $markup) {
-            $markups[] = MarkUp::fromJson((array)$markup);
+            $markups[] = MarkUp::fromJson((array) $markup);
         }
         return new self(
-            mid: (string)($data['mid'] ?? ''),
-            seq: (int)($data['seq'] ?? 0),
-            text: (string)($data['text'] ?? ''),
+            mid: (string) ($data['mid'] ?? ''),
+            seq: (int) ($data['seq'] ?? 0),
+            text: (string) ($data['text'] ?? ''),
             attachments: $attachments,
             rawAttachments: $rawAttachments,
-            replyTo: (string)($data['reply_to'] ?? ''),
+            replyTo: (string) ($data['reply_to'] ?? ''),
             markups: $markups,
         );
     }

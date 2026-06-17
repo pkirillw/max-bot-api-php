@@ -9,9 +9,7 @@ final readonly class GetSubscriptionsResult implements \JsonSerializable
     /**
      * @param list<Subscription> $subscriptions
      */
-    public function __construct(public array $subscriptions = [])
-    {
-    }
+    public function __construct(public array $subscriptions = []) {}
 
     /**
      * @param array<string, mixed> $data
@@ -20,7 +18,7 @@ final readonly class GetSubscriptionsResult implements \JsonSerializable
     {
         $subscriptions = [];
         foreach (($data['subscriptions'] ?? []) as $subscription) {
-            $subscriptions[] = Subscription::fromJson((array)$subscription);
+            $subscriptions[] = Subscription::fromJson((array) $subscription);
         }
         return new self(subscriptions: $subscriptions);
     }

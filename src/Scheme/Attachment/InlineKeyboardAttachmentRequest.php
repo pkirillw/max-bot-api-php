@@ -9,9 +9,7 @@ use Pkirillw\MaxBotApi\Scheme\Keyboard;
 
 final readonly class InlineKeyboardAttachmentRequest implements AttachmentRequestInterface
 {
-    public function __construct(public Keyboard $payload)
-    {
-    }
+    public function __construct(public Keyboard $payload) {}
 
     public function getType(): AttachmentType
     {

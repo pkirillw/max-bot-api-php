@@ -20,9 +20,9 @@ final readonly class Recipient implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            chatId: (int)($data['chat_id'] ?? 0),
-            chatType: isset($data['chat_type']) ? ChatType::from((string)$data['chat_type']) : null,
-            userId: (int)($data['user_id'] ?? 0),
+            chatId: (int) ($data['chat_id'] ?? 0),
+            chatType: isset($data['chat_type']) ? ChatType::from((string) $data['chat_type']) : null,
+            userId: (int) ($data['user_id'] ?? 0),
         );
     }
 

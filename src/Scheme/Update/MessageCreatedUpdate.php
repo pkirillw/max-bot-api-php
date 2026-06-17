@@ -69,8 +69,8 @@ final readonly class MessageCreatedUpdate extends AbstractUpdate
     public static function fromJson(array $data, string $debugRaw = ''): self
     {
         return new self(
-            message: Message::fromJson((array)($data['message'] ?? [])),
-            timestamp: (int)($data['timestamp'] ?? 0),
+            message: Message::fromJson((array) ($data['message'] ?? [])),
+            timestamp: (int) ($data['timestamp'] ?? 0),
             debugRaw: $debugRaw,
         );
     }

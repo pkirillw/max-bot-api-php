@@ -21,10 +21,10 @@ final readonly class LinkedMessage implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            type: isset($data['type']) ? MessageLinkType::from((string)$data['type']) : null,
-            sender: isset($data['sender']) ? User::fromJson((array)$data['sender']) : null,
-            chatId: (int)($data['chat_id'] ?? 0),
-            message: isset($data['message']) ? MessageBody::fromJson((array)$data['message']) : null,
+            type: isset($data['type']) ? MessageLinkType::from((string) $data['type']) : null,
+            sender: isset($data['sender']) ? User::fromJson((array) $data['sender']) : null,
+            chatId: (int) ($data['chat_id'] ?? 0),
+            message: isset($data['message']) ? MessageBody::fromJson((array) $data['message']) : null,
         );
     }
 

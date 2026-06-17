@@ -39,9 +39,9 @@ final readonly class DialogClearedFromChatUpdate extends AbstractUpdate
     public static function fromJson(array $data, string $debugRaw = ''): self
     {
         return new self(
-            chatId: (int)($data['chat_id'] ?? 0),
-            user: User::fromJson((array)($data['user'] ?? [])),
-            timestamp: (int)($data['timestamp'] ?? 0),
+            chatId: (int) ($data['chat_id'] ?? 0),
+            user: User::fromJson((array) ($data['user'] ?? [])),
+            timestamp: (int) ($data['timestamp'] ?? 0),
             debugRaw: $debugRaw,
         );
     }

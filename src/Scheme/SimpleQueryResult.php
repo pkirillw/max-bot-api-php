@@ -17,7 +17,7 @@ final readonly class SimpleQueryResult implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            success: (bool)($data['success'] ?? false),
+            success: (bool) ($data['success'] ?? false),
             message: $data['message'] ?? null,
         );
     }

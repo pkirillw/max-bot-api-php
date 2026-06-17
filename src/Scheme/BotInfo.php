@@ -26,11 +26,11 @@ final readonly class BotInfo implements \JsonSerializable
     {
         $commands = [];
         foreach (($data['commands'] ?? []) as $command) {
-            $commands[] = BotCommand::fromJson((array)$command);
+            $commands[] = BotCommand::fromJson((array) $command);
         }
         return new self(
-            userId: (int)($data['user_id'] ?? 0),
-            name: (string)($data['name'] ?? ''),
+            userId: (int) ($data['user_id'] ?? 0),
+            name: (string) ($data['name'] ?? ''),
             username: $data['username'] ?? null,
             avatarUrl: $data['avatar_url'] ?? null,
             fullAvatarUrl: $data['full_avatar_url'] ?? null,

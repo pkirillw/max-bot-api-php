@@ -31,10 +31,10 @@ final readonly class OpenAppButton implements ButtonInterface
     public static function fromJson(array $data): self
     {
         return new self(
-            text: (string)($data['text'] ?? ''),
-            webApp: (string)($data['web_app'] ?? ''),
-            payload: (string)($data['payload'] ?? ''),
-            contactId: (int)($data['contact_id'] ?? 0),
+            text: (string) ($data['text'] ?? ''),
+            webApp: (string) ($data['web_app'] ?? ''),
+            payload: (string) ($data['payload'] ?? ''),
+            contactId: (int) ($data['contact_id'] ?? 0),
         );
     }
 

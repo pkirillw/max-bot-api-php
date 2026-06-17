@@ -32,22 +32,22 @@ final readonly class ChatMember implements \JsonSerializable
     {
         $permissions = [];
         foreach (($data['permissions'] ?? []) as $permission) {
-            $parsed = ChatAdminPermission::tryFrom((string)$permission);
+            $parsed = ChatAdminPermission::tryFrom((string) $permission);
             if ($parsed !== null) {
                 $permissions[] = $parsed;
             }
         }
         return new self(
-            userId: (int)($data['user_id'] ?? 0),
-            name: (string)($data['name'] ?? ''),
+            userId: (int) ($data['user_id'] ?? 0),
+            name: (string) ($data['name'] ?? ''),
             username: $data['username'] ?? null,
             avatarUrl: $data['avatar_url'] ?? null,
             fullAvatarUrl: $data['full_avatar_url'] ?? null,
-            lastAccessTime: (int)($data['last_access_time'] ?? 0),
-            isOwner: (bool)($data['is_owner'] ?? false),
-            isAdmin: (bool)($data['is_admin'] ?? false),
-            isBot: (bool)($data['is_bot'] ?? false),
-            joinTime: (int)($data['join_time'] ?? 0),
+            lastAccessTime: (int) ($data['last_access_time'] ?? 0),
+            isOwner: (bool) ($data['is_owner'] ?? false),
+            isAdmin: (bool) ($data['is_admin'] ?? false),
+            isBot: (bool) ($data['is_bot'] ?? false),
+            joinTime: (int) ($data['join_time'] ?? 0),
             permissions: $permissions,
         );
     }

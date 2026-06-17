@@ -43,6 +43,9 @@ jobs:
       - name: Run test suite
         run: vendor/bin/phpunit --colors=never
 
+      - name: Coding standards (PHP CS Fixer)
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff
+
       - name: Static analysis (PHPStan)
         run: vendor/bin/phpstan analyse --no-progress --memory-limit=1G
 

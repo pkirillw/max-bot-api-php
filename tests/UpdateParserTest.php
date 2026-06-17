@@ -7,8 +7,8 @@ namespace Pkirillw\MaxBotApi\Tests;
 use PHPUnit\Framework\TestCase;
 use Pkirillw\MaxBotApi\Scheme\Enum\ButtonType;
 use Pkirillw\MaxBotApi\Scheme\Enum\UpdateType;
-use Pkirillw\MaxBotApi\Scheme\Update\MessageCreatedUpdate;
 use Pkirillw\MaxBotApi\Scheme\Update\MessageCallbackUpdate;
+use Pkirillw\MaxBotApi\Scheme\Update\MessageCreatedUpdate;
 use Pkirillw\MaxBotApi\Scheme\Update\UpdateParser;
 
 /**

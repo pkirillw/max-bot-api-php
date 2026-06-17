@@ -23,9 +23,7 @@ final readonly class Messages
 {
     private const MAX_RETRIES = 3;
 
-    public function __construct(private Client $client)
-    {
-    }
+    public function __construct(private Client $client) {}
 
     public function newKeyboardBuilder(): Keyboard
     {
@@ -149,7 +147,7 @@ final readonly class Messages
         ]);
 
         $data = $this->client->requestJson('POST', 'messages', $query, $message->getBody(), $message->isReset());
-        return SchemeMessage::fromJson((array)($data['message'] ?? $data));
+        return SchemeMessage::fromJson((array) ($data['message'] ?? $data));
     }
 
     private function editMessageOnce(string $messageId, Message $message): void
@@ -184,6 +182,6 @@ final readonly class Messages
         }
 
         $data = $this->client->requestJson('GET', 'notify/exists', $query, null, $message->isReset());
-        return array_values(array_map('strval', (array)($data['existing_phone_numbers'] ?? [])));
+        return array_values(array_map('strval', (array) ($data['existing_phone_numbers'] ?? [])));
     }
 }

@@ -9,9 +9,7 @@ final readonly class PhotoTokens implements \JsonSerializable
     /**
      * @param array<string, PhotoToken> $photos
      */
-    public function __construct(public array $photos = [])
-    {
-    }
+    public function __construct(public array $photos = []) {}
 
     /**
      * @param array<string, mixed> $data
@@ -20,7 +18,7 @@ final readonly class PhotoTokens implements \JsonSerializable
     {
         $photos = [];
         foreach (($data['photos'] ?? []) as $key => $photo) {
-            $photos[(string)$key] = PhotoToken::fromJson((array)$photo);
+            $photos[(string) $key] = PhotoToken::fromJson((array) $photo);
         }
         return new self(photos: $photos);
     }

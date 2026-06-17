@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Pkirillw\MaxBotApi;
 
-use Psr\Http\Client\ClientInterface as PsrHttpClientInterface;
-use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\StreamFactoryInterface;
 use Pkirillw\MaxBotApi\Client\Client;
 use Pkirillw\MaxBotApi\Client\ClientFactory;
 use Pkirillw\MaxBotApi\Client\Options;
@@ -17,6 +14,9 @@ use Pkirillw\MaxBotApi\Endpoint\Messages;
 use Pkirillw\MaxBotApi\Endpoint\Subscriptions;
 use Pkirillw\MaxBotApi\Endpoint\Uploads;
 use Pkirillw\MaxBotApi\Exception\EmptyTokenException;
+use Psr\Http\Client\ClientInterface as PsrHttpClientInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 
 /**
  * Entry point of the MAX Bot API client.

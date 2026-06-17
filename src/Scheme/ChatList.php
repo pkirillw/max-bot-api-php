@@ -21,11 +21,11 @@ final readonly class ChatList implements \JsonSerializable
     {
         $chats = [];
         foreach (($data['chats'] ?? []) as $chat) {
-            $chats[] = Chat::fromJson((array)$chat);
+            $chats[] = Chat::fromJson((array) $chat);
         }
         return new self(
             chats: $chats,
-            marker: isset($data['marker']) ? (int)$data['marker'] : null,
+            marker: isset($data['marker']) ? (int) $data['marker'] : null,
         );
     }
 

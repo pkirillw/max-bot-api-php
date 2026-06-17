@@ -23,7 +23,7 @@ final readonly class Keyboard implements \JsonSerializable
         foreach (($data['buttons'] ?? []) as $row) {
             $rowButtons = [];
             foreach ($row as $buttonData) {
-                $button = ButtonParser::fromJson((array)$buttonData);
+                $button = ButtonParser::fromJson((array) $buttonData);
                 if ($button !== null) {
                     $rowButtons[] = $button;
                 }
@@ -39,7 +39,7 @@ final readonly class Keyboard implements \JsonSerializable
             'buttons' => array_map(
                 static fn(array $row) => array_map(
                     static fn(ButtonInterface $b) => $b->jsonSerialize(),
-                    $row
+                    $row,
                 ),
                 $this->buttons,
             ),

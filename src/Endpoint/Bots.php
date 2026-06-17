@@ -13,9 +13,7 @@ use Pkirillw\MaxBotApi\Scheme\BotPatch;
  */
 final readonly class Bots
 {
-    public function __construct(private Client $client)
-    {
-    }
+    public function __construct(private Client $client) {}
 
     public function getBot(): BotInfo
     {

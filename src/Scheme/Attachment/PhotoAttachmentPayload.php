@@ -18,9 +18,9 @@ final readonly class PhotoAttachmentPayload implements \JsonSerializable
     public static function fromJson(array $data): self
     {
         return new self(
-            photoId: (int)($data['photo_id'] ?? 0),
-            token: (string)($data['token'] ?? ''),
-            url: (string)($data['url'] ?? ''),
+            photoId: (int) ($data['photo_id'] ?? 0),
+            token: (string) ($data['token'] ?? ''),
+            url: (string) ($data['url'] ?? ''),
         );
     }
 

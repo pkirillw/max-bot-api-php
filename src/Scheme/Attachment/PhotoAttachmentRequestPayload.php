@@ -22,11 +22,11 @@ final readonly class PhotoAttachmentRequestPayload implements \JsonSerializable
     {
         $photos = [];
         foreach (($data['photos'] ?? []) as $key => $photo) {
-            $photos[(string)$key] = PhotoToken::fromJson((array)$photo);
+            $photos[(string) $key] = PhotoToken::fromJson((array) $photo);
         }
         return new self(
-            url: (string)($data['url'] ?? ''),
-            token: (string)($data['token'] ?? ''),
+            url: (string) ($data['url'] ?? ''),
+            token: (string) ($data['token'] ?? ''),
             photos: $photos,
         );
     }

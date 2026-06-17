@@ -13,7 +13,7 @@ final readonly class Image implements \JsonSerializable
      */
     public static function fromJson(array $data): self
     {
-        return new self(url: (string)($data['url'] ?? ''));
+        return new self(url: (string) ($data['url'] ?? ''));
     }
 
     public function jsonSerialize(): array
